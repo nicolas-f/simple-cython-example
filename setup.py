@@ -1,12 +1,11 @@
 from setuptools import setup, Extension
 from Cython.Distutils import build_ext
-import numpy as np
 
 NAME = "simple-cython-example"
 VERSION = "0.1"
 DESCR = "A small template project that shows how to wrap C/C++ code into python using Cython"
 URL = "http://www.google.com"
-REQUIRES = ['numpy', 'cython']
+REQUIRES = ['cython']
 
 AUTHOR = "Tristan A. Hearn"
 EMAIL = "tristanhearn@gmail.com"
@@ -19,7 +18,7 @@ PACKAGES = [SRC_DIR]
 ext_1 = Extension(SRC_DIR + ".wrapped",
                   [SRC_DIR + "/lib/cfunc.c", SRC_DIR + "/wrapped.pyx"],
                   libraries=[],
-                  include_dirs=[np.get_include()])
+                  include_dirs=[])
 
 
 EXTENSIONS = [ext_1]
